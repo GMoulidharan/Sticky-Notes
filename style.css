@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Faster+One&family=Fasthand&family=Jacques+Francois+Shadow&family=Playwrite+CU:wght@100..400&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Rubik", sans-serif;
+
+}
+body{
+    background-color: #ffbe76;
+}
+
+#container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,200px);
+    gap: 24px;
+    padding: 24px;
+}
+.sticky{
+    height: 200px;
+    padding: 16px;
+    border: none;
+    outline: none;
+    resize: none;
+    border-radius: 5px;
+    font-size: 18px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+}
+.btn-add{
+    height: 200px;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 20px;
+    background-color: rgba(235, 77, 75,0.8);
+    cursor: pointer;
+}
+.btn-add:hover{
+    background-color: #ff7979;
+    border-radius: 5px;
+}
