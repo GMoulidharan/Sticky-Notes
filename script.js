@@ -24,7 +24,14 @@ function createTextElement(id,content){
     //entered text are stored in the local storage 
     textElement.addEventListener("change",()=>{
         updateNotes(id,textElement.value);
-    })
+    });
+
+    textElement.addEventListener("dblclick",()=>{
+        const check=confirm("Are you sure to delete");
+        if(check){
+            deleteNotes(id,textElement);
+        }
+    });
     return textElement;
 }
 
@@ -55,4 +62,10 @@ function updateNotes(id,content){
     const updateElement=notes.filter((note)=>note.id==id)[0];
     updateElement.content=content;//assigning the new content
     saveNotes(notes);
+}
+
+function deleteNotes(id,textElement){
+    const notes=getAppStorage().filter((note)=>note.id!=id);//leaving tht particluar ID
+    saveNotes(notes);
+    containerElement.removeChild(textElement);
 }
