@@ -20,10 +20,16 @@ function createTextElement(id,content){
     //adding value to textarea.
     textElement.value=content;
     textElement.placeholder="Enter your notes";
+
+    //entered text are stored in the local storage 
+    textElement.addEventListener("change",()=>{
+        updateNotes(id,textElement.value);
+    })
     return textElement;
 }
 
-//add function
+
+//add new sticky note
 function addSticky(){
     const notes=getAppStorage();
     const noteObj={
@@ -41,4 +47,12 @@ btnADD.addEventListener('click',()=>addSticky());
 //save
 function saveNotes(notes){
     localStorage.setItem('sticky-app',JSON.stringify(notes))//saving the notes in the string formate into the local storage
+}
+
+//update new sticky note
+function updateNotes(id,content){
+    const notes=getAppStorage();
+    const updateElement=notes.filter((note)=>note.id==id)[0];
+    updateElement.content=content;//assigning the new content
+    saveNotes(notes);
 }
